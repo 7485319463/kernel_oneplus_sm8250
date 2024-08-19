@@ -238,6 +238,15 @@ config ILLEGAL_POINTER_VALUE
 	hex
 	default 0xdead000000000000
 
+config HW_BREAKPOINT
+    bool "Enable hardware breakpoints"
+    depends on PERF_EVENTS && (X86 || ARM || ARM64)
+    help
+      Enable support for hardware breakpoints (also known as watchpoints)
+      which allow the kernel to be notified when certain memory locations
+      are accessed or when instructions at certain addresses are executed.
+
+
 config LOCKDEP_SUPPORT
 	def_bool y
 
