@@ -51,7 +51,6 @@ jobs:
        export PATH=$(pwd)/clang/bin/:$PATH
        export ARCH=arm64
        export SUBARCH=arm64
-       echo "CONFIG_HW_BREAKPOINT=y" >> .config
        make $KERNEL_CMDLINE $KERNEL_DEFCONFIG CC="ccache clang"
        make $KERNEL_CMDLINE CC="ccache clang" -j$(nproc --all)
        cp out/arch/arm64/boot/Image.gz AnyKernel3
